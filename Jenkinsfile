@@ -79,4 +79,16 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            mail to: 'ashoksulthan21@gmail.com',
+                 subject: "Jenkins Build Notification: ${currentBuild.fullDisplayName}",
+                 body: """\
+                 Build Status: ${currentBuild.currentResult}
+                 Project: ${env.JOB_NAME}
+                 Build Number: ${env.BUILD_NUMBER}
+                 Build URL: ${env.BUILD_URL}
+                 """
+        }
+    }
 }
