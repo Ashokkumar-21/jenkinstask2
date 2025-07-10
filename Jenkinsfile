@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-        stage('Login to AWS ECR') {
+        stage('Login to AWS ECR for Pull') {
             steps {
                 script {
                     sh '''
