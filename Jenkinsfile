@@ -63,7 +63,7 @@ pipeline {
         stage('Create Pods form Build Image') {
             steps {
                 script {
-                    sh "docker run -itd -p 5000:5000 ${IMAGE_NAME}"
+                    sh "docker run -itd -p 5000:80 ${IMAGE_NAME}"
                 }
             }
         }
