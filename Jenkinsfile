@@ -52,6 +52,17 @@ pipeline {
             }
         }
 
+        stage('Login to AWS ECR') {
+            steps {
+                script {
+                    sh '''
+                        aws ecr get-login-password --region $AWS_REGION | \
+                        docker login --username AWS --password-stdin $ECR_REGISTRY
+                    '''
+                }
+            }
+        }
+
         stage('Pull from DockerHub') {
             steps {
                 script {
