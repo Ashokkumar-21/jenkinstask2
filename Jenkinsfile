@@ -66,7 +66,7 @@ pipeline {
         stage('Pull from DockerHub') {
             steps {
                 script {
-                    sh "docker pull ${IMAGE_NAME}"
+                    sh "docker pull ${FULL_IMAGE_NAME}"
                 }
             }
         }
@@ -74,7 +74,7 @@ pipeline {
         stage('Create Pods form Build Image') {
             steps {
                 script {
-                    sh "docker run -itd -p 5000:80 ${IMAGE_NAME}"
+                    sh "docker run -itd -p 5000:80 ${FULL_IMAGE_NAME}"
                 }
             }
         }
