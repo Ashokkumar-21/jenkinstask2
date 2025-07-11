@@ -63,7 +63,7 @@ pipeline {
         stage('Create Pods form Build Image') {
             steps {
                 script {
-                    sh "docker run -itd -p 5000:80 --name jenkins ${FULL_IMAGE_NAME}"
+                    sh "docker run -itd -p 5000:80 ${FULL_IMAGE_NAME}"
                 }
             }
         }
